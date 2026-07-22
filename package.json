@@ -1,0 +1,27 @@
+{
+  "name": "odin-hashmap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guisalva/odin-hashmap.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/guisalva/odin-hashmap/issues"
+  },
+  "homepage": "https://github.com/guisalva/odin-hashmap#readme",
+  "devDependencies": {
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
+    "babel-jest": "^30.4.1",
+    "jest": "^30.4.2"
+  }
+}
