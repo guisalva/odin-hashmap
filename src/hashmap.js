@@ -39,4 +39,16 @@ export class HashMap {
       this.size++;
     }
   }
+
+  get(key) {
+    const bucketIndex = this.hash(key) % this.capacity;
+
+    if (this.buckets[bucketIndex]) {
+      const data = this.buckets[bucketIndex].findKey(key);
+
+      if (data) return data.value;
+    }
+
+    return null;
+  }
 }

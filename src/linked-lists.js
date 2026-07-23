@@ -119,6 +119,18 @@ export class LinkedList {
     return false;
   }
 
+  findKey(key) {
+    let currentNode = this.head;
+
+    while (currentNode) {
+      if (currentNode.key === key) return currentNode;
+
+      currentNode = currentNode.nextNode;
+    }
+
+    return undefined;
+  }
+
   findIndex(key) {
     let currentNode = this.head;
 
