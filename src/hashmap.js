@@ -74,4 +74,68 @@ export class HashMap {
 
     return false;
   }
+
+  length() {
+    return this.size;
+  }
+
+  clear() {
+    this.buckets = new Array(this.capacity).fill(null);
+    this.size = 0;
+  }
+
+  // keys() returns an array containing all the keys inside the hash map.
+  keys() {
+    let keys = [];
+
+    for (const bucket of this.buckets) {
+      if (bucket) {
+        let currentNode = bucket.head;
+
+        while (currentNode) {
+          keys.push(currentNode.key);
+
+          currentNode = currentNode.nextNode;
+        }
+      }
+    }
+
+    return keys;
+  }
+
+  values() {
+    let values = [];
+
+    for (const bucket of this.buckets) {
+      if (bucket) {
+        let currentNode = bucket.head;
+
+        while (currentNode) {
+          values.push(currentNode.value);
+
+          currentNode = currentNode.nextNode;
+        }
+      }
+    }
+
+    return values;
+  }
+
+  entries() {
+    let pairs = [];
+
+    for (const bucket of this.buckets) {
+      if (bucket) {
+        let currentNode = bucket.head;
+
+        while (currentNode) {
+          pairs.push([currentNode.key, currentNode.value]);
+
+          currentNode = currentNode.nextNode;
+        }
+      }
+    }
+
+    return pairs;
+  }
 }
