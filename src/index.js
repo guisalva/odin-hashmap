@@ -20,3 +20,4 @@ console.log(test.capacity);
 test.set("bird", "blue");
 
 console.log(test.capacity);
+console.log(test.entries());
