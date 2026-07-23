@@ -228,4 +228,26 @@ export class LinkedList {
       this.head = currentNode.nextNode;
     }
   }
+
+  remove(key) {
+    let previousNode = null;
+    let currentNode = this.head;
+
+    while (currentNode) {
+      if (currentNode.key === key) break;
+
+      previousNode = currentNode;
+      currentNode = currentNode.nextNode;
+    }
+
+    if (previousNode) {
+      previousNode.nextNode = currentNode.nextNode;
+      return true;
+    } else {
+      this.head = currentNode.nextNode;
+      return true;
+    }
+
+    return false;
+  }
 }

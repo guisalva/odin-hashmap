@@ -51,4 +51,27 @@ export class HashMap {
 
     return null;
   }
+
+  has(key) {
+    const bucketIndex = this.hash(key) % this.capacity;
+
+    if (this.buckets[bucketIndex]) {
+      return this.buckets[bucketIndex].contains(key);
+    }
+
+    return false;
+  }
+
+  remove(key) {
+    const bucketIndex = this.hash(key) % this.capacity;
+
+    if (this.buckets[bucketIndex]) {
+      if (this.buckets[bucketIndex].remove(key)) {
+        this.size--;
+        return true;
+      }
+    }
+
+    return false;
+  }
 }
