@@ -146,3 +146,15 @@ describe("testing method `entries`", () => {
     expect(pairs).toHaveLength(3);
   });
 });
+
+describe("testing method `resize`", () => {
+  test("should double the capacity of the hash map", () => {
+    const hashMap = new HashMap();
+
+    expect(hashMap.capacity).toBe(16);
+
+    hashMap.resize();
+
+    expect(hashMap.capacity).toBe(32);
+  });
+});

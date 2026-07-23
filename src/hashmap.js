@@ -1,4 +1,4 @@
-import { LinkedList } from "./linked-lists";
+import { LinkedList } from "./linked-lists.js";
 
 export class HashMap {
   constructor() {
@@ -20,6 +20,8 @@ export class HashMap {
   }
 
   set(key, value) {
+    if (this.size >= this.capacity * this.loadFactor) this.resize();
+
     const bucketIndex = this.hash(key) % this.capacity;
 
     if (!this.buckets[bucketIndex]) {
@@ -84,7 +86,6 @@ export class HashMap {
     this.size = 0;
   }
 
-  // keys() returns an array containing all the keys inside the hash map.
   keys() {
     let keys = [];
 
@@ -137,5 +138,18 @@ export class HashMap {
     }
 
     return pairs;
+  }
+
+  resize() {
+    const items = this.entries();
+
+    this.capacity *= 2;
+
+    this.buckets = new Array(this.capacity).fill(null);
+    this.size = 0;
+
+    for (const [key, value] of items) {
+      this.set(key, value);
+    }
   }
 }
